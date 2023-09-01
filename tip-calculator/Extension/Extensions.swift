@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - UIColor
+
 extension UIColor {
     
     convenience init(hexString: String) {
@@ -28,6 +30,8 @@ extension UIColor {
     }
     
 }
+
+// MARK: - UIView
 
 extension UIView {
     
@@ -55,10 +59,32 @@ extension UIView {
     
 }
 
+// MARK: - String
+
 extension String {
     
     var doubleValue: Double? {
         Double(self)
+    }
+    
+}
+
+// MARK: - UIResponder
+
+extension UIResponder {
+    
+    var parentViewController: UIViewController? {
+        return next as? UIViewController ?? next?.parentViewController
+    }
+    
+}
+
+// MARK: - Int
+
+extension Int {
+    
+    var stringValue: String {
+        return  "\(self)"
     }
     
 }
