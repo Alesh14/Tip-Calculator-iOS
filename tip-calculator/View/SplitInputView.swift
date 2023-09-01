@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import Combine
+import CombineCocoa
 
 class SplitInputView: UIView {
+    
+    private var cancellabes = Set<AnyCancellable>()
     
     private let headerView: HeaderView = {
         let view = HeaderView()
@@ -17,11 +21,21 @@ class SplitInputView: UIView {
     
     private lazy var decrementButton: UIButton = {
         let button = buildButton(text: "-", corners: [.layerMinXMinYCorner, .layerMinXMaxYCorner])
+        button.tapPublisher.flatMap { [unowned self] _ in
+            Just(splitSubject.value == 1 ? 1 : splitSubject.value - 1).eraseToAnyPublisher()
+        }
+        .assign(to: \.value, on: splitSubject)
+        .store(in: &cancellabes)
         return button
     }()
     
     private lazy var incrementButton: UIButton = {
         let button = buildButton(text: "+", corners: [.layerMaxXMinYCorner, .layerMaxXMaxYCorner])
+        button.tapPublisher.flatMap { [unowned self] _ in
+            Just(splitSubject.value + 1).eraseToAnyPublisher()
+        }
+        .assign(to: \.value, on: splitSubject)
+        .store(in: &cancellabes)
         return button
     }()
     
@@ -39,13 +53,25 @@ class SplitInputView: UIView {
         return view
     }()
     
+    private var splitSubject: CurrentValueSubject<Int, Never> = .init(1)
+    var valuePublisher: AnyPublisher<Int, Never> {
+        return splitSubject.removeDuplicates().eraseToAnyPublisher()
+    }
+    
     init() {
         super.init(frame: .zero)
         layout()
+        observe()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func observe() {
+        splitSubject.sink { [unowned self] quantity in
+            quantityCountLabel.text = quantity.stringValue
+        }.store(in: &cancellabes)
     }
     
     private func layout() {
@@ -66,7 +92,7 @@ class SplitInputView: UIView {
             button.snp.makeConstraints {
                 $0.width.equalTo(button.snp.height)
             }
-        }
+        }  
     }
     
     private func buildButton(text: String, corners: CACornerMask) -> UIButton {
