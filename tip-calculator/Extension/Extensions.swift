@@ -88,3 +88,23 @@ extension Int {
     }
     
 }
+
+// MARK: - Double
+
+extension Double {
+    
+    var stringValue: String {
+        return "\(self)"
+    }
+    
+    var currencyFormatted: String {
+        var isWholeNumber: Bool {
+            return isZero == true ? true : (isNormal == false ? false : self == rounded())
+        }
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.minimumFractionDigits = isWholeNumber == true ? 0 : 2
+        return formatter.string(for: self) ?? "0"
+    }
+    
+}
