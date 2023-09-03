@@ -32,7 +32,6 @@ class CalculatorVM {
             return Just(result)
         }.eraseToAnyPublisher()
         
-        
         return Output(updateViewPublisher: updateViewPublisher)
         
     }
@@ -48,7 +47,7 @@ class CalculatorVM {
         case .twentyPercent:
             return bill * 0.2
         case .custom(let value):
-            return Double(value) / 100.0
+            return Double(value)
         }
     }
     
