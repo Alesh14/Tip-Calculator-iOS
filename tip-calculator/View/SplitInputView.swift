@@ -38,7 +38,7 @@ class SplitInputView: UIView {
         .store(in: &cancellabes)
         return button
     }()
-    
+     
     private lazy var quantityCountLabel: UILabel = {
         let label = LabelFactory.build(text: "1", font: ThemeFont.bold(ofSize: 20))
         return label
@@ -66,6 +66,10 @@ class SplitInputView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func reset() {
+        splitSubject.send(1)
     }
     
     private func observe() {

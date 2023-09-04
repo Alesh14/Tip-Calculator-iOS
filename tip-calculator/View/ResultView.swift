@@ -16,7 +16,7 @@ class ResultView: UIView {
     private let amountPersonLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        let text = NSMutableAttributedString(string: "$0", attributes: [
+        let text = NSMutableAttributedString(string: "$0.0", attributes: [
             .font: ThemeFont.bold(ofSize: 48)
         ])
         text.addAttributes([.font: ThemeFont.bold(ofSize: 24)], range: NSMakeRange(0, 1))
