@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A61B47672A94CB8900B2CDF9 /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61B47662A94CB8900B2CDF9 /* LabelFactory.swift */; };
 		A61B47692A9762FA00B2CDF9 /* AmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61B47682A9762FA00B2CDF9 /* AmountView.swift */; };
+		A6301D602AA4E7F1009869B9 /* click.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A6301D5F2AA4E7F1009869B9 /* click.m4a */; };
+		A6301D632AA4E83E009869B9 /* AudioPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6301D622AA4E83E009869B9 /* AudioPlayerService.swift */; };
 		A63F273E2A99FDD30097E326 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63F273D2A99FDD30097E326 /* HeaderView.swift */; };
 		A63F27412A9A06D60097E326 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63F27402A9A06D60097E326 /* Tip.swift */; };
 		A63F27462A9A17FC0097E326 /* CalculatorVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63F27452A9A17FC0097E326 /* CalculatorVM.swift */; };
@@ -56,6 +58,8 @@
 /* Begin PBXFileReference section */
 		A61B47662A94CB8900B2CDF9 /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
 		A61B47682A9762FA00B2CDF9 /* AmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountView.swift; sourceTree = "<group>"; };
+		A6301D5F2AA4E7F1009869B9 /* click.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = click.m4a; sourceTree = "<group>"; };
+		A6301D622AA4E83E009869B9 /* AudioPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerService.swift; sourceTree = "<group>"; };
 		A63F273D2A99FDD30097E326 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A63F27402A9A06D60097E326 /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		A63F27452A9A17FC0097E326 /* CalculatorVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorVM.swift; sourceTree = "<group>"; };
@@ -120,6 +124,14 @@
 			path = Factory;
 			sourceTree = "<group>";
 		};
+		A6301D612AA4E818009869B9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A6301D622AA4E83E009869B9 /* AudioPlayerService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		A63F273F2A9A06C90097E326 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,15 +149,16 @@
 			path = "View-Model";
 			sourceTree = "<group>";
 		};
-		A63F27432A9A17B80097E326 /* Resources */ = {
+		A63F27432A9A17B80097E326 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				A6301D5F2AA4E7F1009869B9 /* click.m4a */,
 				A61B47652A94CB7D00B2CDF9 /* Factory */,
 				A65256FB2A92579D0043C5C2 /* Configuration */,
 				A67959B32A923FFF00612A7F /* SceneDelegate.swift */,
 				A67959B12A923FFF00612A7F /* AppDelegate.swift */,
 			);
-			path = Resources;
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		A63F27442A9A17D90097E326 /* Controller */ = {
@@ -211,7 +224,8 @@
 		A67959B02A923FFF00612A7F /* tip-calculator */ = {
 			isa = PBXGroup;
 			children = (
-				A63F27432A9A17B80097E326 /* Resources */,
+				A6301D612AA4E818009869B9 /* Service */,
+				A63F27432A9A17B80097E326 /* Resource */,
 				A63F273F2A9A06C90097E326 /* Model */,
 				A65256EE2A9244C50043C5C2 /* View */,
 				A63F27422A9A179E0097E326 /* View-Model */,
@@ -368,6 +382,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6301D602AA4E7F1009869B9 /* click.m4a in Resources */,
 				A67959BE2A92400000612A7F /* LaunchScreen.storyboard in Resources */,
 				A67959BB2A92400000612A7F /* Assets.xcassets in Resources */,
 			);
@@ -411,6 +426,7 @@
 				A63F27482A9A1ADA0097E326 /* Result.swift in Sources */,
 				A65256F82A92479E0043C5C2 /* TipInputView.swift in Sources */,
 				A63F273E2A99FDD30097E326 /* HeaderView.swift in Sources */,
+				A6301D632AA4E83E009869B9 /* AudioPlayerService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
